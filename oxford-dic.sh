@@ -77,5 +77,13 @@ function _req(){
     "$1"
 }
 
+# Get Definitions:
 _req "${endpoint_base}/${endpoint_type}/${source_lang}/${word_id}" |
-jq -r '"Definitions:\n- "+ ([.results[].lexicalEntries[].entries[].senses[].shortDefinitions|select(.!=null)|add]|join("\n- "))'
+  jq -r '
+    "Definitions:\n- " + (
+      [
+        .results[].lexicalEntries[].entries[].senses[].shortDefinitions |
+        select(.!=null) | add
+      ] | join("\n- ")
+    )
+  '
