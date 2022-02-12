@@ -7,8 +7,8 @@ if ! command -v curl jq &> /dev/null; then
   exit 1
 fi
 
-if [ -f ~/.config/describe ]; then
-  . ~/.config/describe
+if [ -f ~/.config/oxdic ]; then
+  . ~/.config/oxdic
 else
   # app_id='...'
   # app_key='...'
